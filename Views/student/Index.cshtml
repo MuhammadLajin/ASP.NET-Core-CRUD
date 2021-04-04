@@ -1,0 +1,41 @@
+﻿@model List<day1core.Models.Student>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //List<day1core.Models.Department> dept = ViewBag.dept;
+}
+
+<br />
+<table class="table">
+    <tr>
+        <th>Full Name</th>
+        <th>Address</th>
+        <th>Age</th>
+        <th>Dept</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.StFname  @item.StLname</td>
+            <td>@item.StAddress</td>
+            <td>@item.StAge</td>
+            <td>
+                @if (item.DeptId != null)
+                {
+                    <span> @item.Dept.DeptName</span>
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Update", "Edit", new { id = item.StId }) |
+                <a href="/Student/Delete/@item.StId" onclick="return confirm('Are you sure to delete this Course')">Delete</a>
+            </td>
+
+        </tr>
+    }
+
+
+</table>
+
+
+

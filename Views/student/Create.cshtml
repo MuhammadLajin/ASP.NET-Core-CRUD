@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">Form Add Student</div>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <div class="form-group">
+                <label for="squareInputId">Student ID</label>
+                <input type="text" name="StId" class="form-control input-pill" id="squareInputId" placeholder="ex 404">
+            </div>
+            <div class="form-group">
+                <label for="squareInputFName">First Name</label>
+                <input type="text" name="StFname" class="form-control input-pill" id="squareInputFName" placeholder="ex Muhammad">
+            </div>
+            <div class="form-group">
+                <label for="squareInputLName">Last Name</label>
+                <input type="text" name="StLname" class="form-control input-pill" id="squareInputLName" placeholder="ex Lajin">
+            </div>
+            <div class="form-group">
+                <label for="squareInputAdd">Address</label>
+                <input type="text" name="StAddress" class="form-control input-pill" id="squareInputAdd" placeholder="ex October">
+            </div>
+            <div class="form-group">
+                <label for="squareInputAge">Age</label>
+                <input type="text" name="StAge" class="form-control input-pill" id="squareInputAge" placeholder="ex 25">
+            </div>
+            <div class="form-group">
+                <label for="squareSelectDept">Department</label>
+                <select name="DeptId" class="form-control input-pill" id="squareSelectDept">
+                    @foreach (day1core.Models.Department item in ViewBag.dept)
+                    {
+                        <option value="@item.DeptId">@item.DeptName</option>
+                    }
+                </select>
+            </div>
+            <div class="card-action">
+                <input type="submit" value="Submit" class="btn btn-success" />
+
+            </div>
+        </form>
+    </div>
+</div>
